@@ -1,7 +1,7 @@
 # tree-sitter-opensmarts
 This is a [Tree-sitter](https://github.com/tree-sitter/tree-sitter) grammar implementing the [OpenSmarts specification](https://github.com/timvdm/OpenSMARTS)
 ## Notes
-The provided grammar includes a [bugfix](https://github.com/timvdm/OpenSMARTS/issues/2), so it differs from the specification.
+The provided grammar includes this [bugfix](https://github.com/timvdm/OpenSMARTS/issues/2), and a bugfix for "@@" clockwise chirality, so it deviates from the specification.
 ## How to run
 	git clone https://github.com/0x1d1z3r/tree-sitter-opensmarts
  	cd tree-sitter-opensmarts
