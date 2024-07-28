@@ -1,6 +1,6 @@
 module.exports = grammar({
   name: "OpenSmarts",
-
+  conflicts : ($) => [[$.branched_atom]],
   rules: {
     smarts: ($) => seq($.chain, $.terminator),
     digit: ($) => choice("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"),
@@ -51,7 +51,7 @@ module.exports = grammar({
         $.ring_connectivity,
         $.charge,
         $.chiral,
-        $.sclass //alias to class
+        $.class_ //alias to class
       ),
     symbol: ($) => choice($.element_symbols, $.aromatic_symbols, "*"),
     element_symbols: ($) =>
@@ -176,7 +176,7 @@ module.exports = grammar({
     chiral: ($) =>
       choice(
         seq("@", optional("?")),
-        seq("@@", "?"),
+        seq("@@", optional("?")),
         seq("@TH1", optional("?")),
         seq("@TH2", optional("?")),
         seq("@AL1", optional("?")),
@@ -240,7 +240,7 @@ module.exports = grammar({
         "@TB?",
         "@OH?"
       ),
-    sclass: ($) => seq(":", $.number),
+    class_: ($) => seq(":", $.number),
     bond_expression: ($) =>
       choice(
         $.bond_primitive,
@@ -255,7 +255,7 @@ module.exports = grammar({
         seq(optional($.bond_expression), $.digit),
         seq(optional($.bond_expression), "%", $.digit, $.digit)
       ),
-    branched_atom: ($) => prec.right(seq($.atom, repeat($.ringbond), repeat($.branch))),
+    branched_atom: ($) => seq($.atom, repeat($.ringbond), repeat($.branch)),
     branch: ($) =>
       choice(
         seq("(", $.chain, ")"),

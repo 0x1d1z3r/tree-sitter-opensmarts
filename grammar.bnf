@@ -1,5 +1,5 @@
 <digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
-<number> ::= <digit> |<digit> <number>
+<number> ::= <digit> | <digit> <number>
 <space> ::= " "
 <tab> ::= "\t"
 <linefeed> ::= "\n"
@@ -57,7 +57,7 @@
 <ring_connectivity> ::= "x" | "x" <number>
 <charge> ::= "-" | "-" <digit> | "+" | "+" <digit>
 <question_mark> ::= "?" | E
-<chiral> ::= "@" <question_mark> | "@@" "?"
+<chiral> ::= "@" <question_mark> | "@@" "?" <question_mark>
     | "@TH1" <question_mark> | "@TH2" <question_mark>
     | "@AL1" <question_mark> | "@AL2" <question_mark>
     | "@SP1" <question_mark> | "@SP2" <question_mark> | "@SP3" <question_mark>
