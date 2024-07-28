@@ -1,0 +1,91 @@
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<number> ::= <digit> |<digit> <number>
+<space> ::= " "
+<tab> ::= "\t"
+<linefeed> ::= "\n"
+<carriage_return> ::= "\r"
+<valid_char> ::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I"
+    | "K" | "L" | "M" | "N" | "O" | "P" | "R" | "S" | "T" | "U" | "V"
+    | "W" | "X" | "Y" | "Z"
+    | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "k" | "l"
+    | "m" | "n" | "o" | "p" | "r" | "s" | "t" | "u" | "v" | "x" | "y"
+    | "z"
+    | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+    | "*" | "&" | ";" | "," | "!" | "-" | "=" | "#" | "$" | ":" | "~"
+    | "@" | "/" | "\\" | "+" | "-" | "(" | ")" | "[" | "]"
+<atom> ::= <bracket_atom> | <aliphatic_organic> | <aromatic_organic> | "*"
+<aliphatic_organic> ::= "B" | "C" | "N" | "O" | "S" | "P" | "F" | "Cl" | "Br" | "I"
+<aromatic_organic> ::= "b" | "c" | "n" | "o" | "s" | "p"
+<bracket_atom_expression> ::= <atom_expression> | <atom_expression> <bracket_atom_expression>
+<bracket_atom> ::= "[" <bracket_atom_expression> "]"
+<atom_expression> ::= <atom_primitive>
+    | <recursive_smarts>
+    | <unary_operator> <atom_expression>
+    | <atom_expression> <atom_primitive>
+    | <atom_expression> <binary_operator> <atom_expression>
+<recursive_smarts> ::= "$(" <chain> ")"
+<unary_operator> ::= "!"
+<binary_operator> ::= "&" | ";" | ","
+<atom_primitive> ::= <isotope> | <symbol> | <atomic_number> | "a" | "A"
+    | <degree> | <valence> | <connectivity>
+    | <total_hcount> | <implicit_hcount>
+    | <ring_membership> | <ring_size> | <ring_connectivity>
+    | <charge> | <chiral> | <class>
+<symbol> ::= <element_symbols> | <aromatic_symbols> | "*"
+<element_symbols> ::= "H" | "He" | "Li" | "Be" | "B" | "C" | "N" | "O" | "F"
+    | "Ne" | "Na" | "Mg" | "Al" | "Si" | "P" | "S" | "Cl" | "Ar" | "K"
+    | "Ca" | "Sc" | "Ti" | "V" | "Cr" | "Mn" | "Fe" | "Co" | "Ni" | "Cu"
+    | "Zn" | "Ga" | "Ge" | "As" | "Se" | "Br" | "Kr" | "Rb" | "Sr" | "Y"
+    | "Zr" | "Nb" | "Mo" | "Tc" | "Ru" | "Rh" | "Pd" | "Ag" | "Cd" | "In"
+    | "Sn" | "Sb" | "Te" | "I" | "Xe" | "Cs" | "Ba" | "Hf" | "Ta" | "W"
+    | "Re" | "Os" | "Ir" | "Pt" | "Au" | "Hg" | "Tl" | "Pb" | "Bi" | "Po"
+    | "At" | "Rn" | "Fr" | "Ra" | "Rf" | "Db" | "Sg" | "Bh" | "Hs" | "Mt"
+    | "Ds" | "Rg" | "La" | "Ce" | "Pr" | "Nd" | "Pm" | "Sm" | "Eu" | "Gd"
+    | "Tb" | "Dy" | "Ho" | "Er" | "Tm" | "Yb" | "Lu" | "Ac" | "Th" | "Pa"
+    | "U" | "Np" | "Pu" | "Am" | "Cm" | "Bk" | "Cf" | "Es" | "Fm" | "Md"
+    | "No" | "Lr"
+<aromatic_symbols> ::= "c" | "n" | "o" | "p" | "s" | "se" | "as"
+<isotope> ::= <number>
+<atomic_number> ::= "#" <number>
+<degree> ::= "D" | "D" <number>
+<valence> ::= "v" | "v" <number>
+<connectivity> ::= "X" | "X" <number>
+<total_hcount> ::= "H" | "H" <digit>
+<implicit_hcount> ::= "h" | "h" <digit>
+<ring_membership> ::= "R" | "R" <number>
+<ring_size> ::= "r" | "r" <number>
+<ring_connectivity> ::= "x" | "x" <number>
+<charge> ::= "-" | "-" <digit> | "+" | "+" <digit>
+<question_mark> ::= "?" | E
+<chiral> ::= "@" <question_mark> | "@@" "?"
+    | "@TH1" <question_mark> | "@TH2" <question_mark>
+    | "@AL1" <question_mark> | "@AL2" <question_mark>
+    | "@SP1" <question_mark> | "@SP2" <question_mark> | "@SP3" <question_mark>
+    | "@TB1" <question_mark> | "@TB2" <question_mark> | "@TB3" <question_mark> | "@TB4" <question_mark> | "@TB5" <question_mark> 
+    | "@TB6" <question_mark> | "@TB7" <question_mark> | "@TB8" <question_mark> | "@TB9" <question_mark> | "@TB10" <question_mark> 
+    | "@TB11" <question_mark> | "@TB12" <question_mark> | "@TB13" <question_mark> | "@TB14" <question_mark> | "@TB15" <question_mark> 
+    | "@TB16" <question_mark> | "@TB17" <question_mark> | "@TB18" <question_mark> | "@TB19" <question_mark> | "@TB20" <question_mark>
+    | "@OH1" <question_mark> | "@OH2" <question_mark> | "@OH3" <question_mark> | "@OH4" <question_mark> | "@OH5" <question_mark>
+    | "@OH6" <question_mark> | "@OH7" <question_mark> | "@OH8" <question_mark> | "@OH9" <question_mark> | "@OH10" <question_mark>
+    | "@OH11" <question_mark> | "@OH12" <question_mark> | "@OH13" <question_mark> | "@OH14" <question_mark> | "@OH15" <question_mark>
+    | "@OH16" <question_mark> | "@OH17" <question_mark> | "@OH18" <question_mark> | "@OH19" <question_mark> | "@OH20" <question_mark>
+    | "@OH21" <question_mark> | "@OH22" <question_mark> | "@OH23" <question_mark> | "@OH24" <question_mark> | "@OH25" <question_mark>
+    | "@OH26" <question_mark> | "@OH27" <question_mark> | "@OH28" <question_mark> | "@OH29" <question_mark> | "@OH30" <question_mark>
+    | "@TH?" | "@SP?" | "@AL?" | "@TB?" | "@OH?"
+<class> ::= ":" <number>
+<bond_expression> ::= <bond_primitive>
+    | <unary_operator> <bond_primitive>
+    | <bond_expression> <bond_primitive>
+    | <bond_expression> <binary_operator> <bond_primitive>
+<noo_bond_expression> ::= <bond_expression> | E
+<bond_primitive> ::= "-" | "=" | "#" | "$" | ":" | "~" | "@" | "/" | "\\" | "/?" | "\\?"
+<ringbond> ::= <noo_bond_expression> <digit> | <noo_bond_expression> "%" <digit> <digit>
+<nom_ringbond> ::= <ringbond> <nom_ringbond> | E
+<nom_branch> ::= <branch> <nom_branch> | E
+<branched_atom> ::= <atom> <nom_ringbond> <nom_branch>
+<branch> ::= "(" <chain> ")" | "(" <bond_expression> <chain> ")" | "(" <dot> <chain> ")"
+<chain> ::= <branched_atom> | <chain> <branched_atom> | <chain> <bond_expression> <branched_atom>
+    | <chain> <dot> <branched_atom>
+<dot> ::= "."
+<smarts> ::= <chain> <terminator>
+<terminator> ::= <space> | <tab> | <linefeed> | <carriage_return> | E

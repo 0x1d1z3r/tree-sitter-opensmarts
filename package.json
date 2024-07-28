@@ -1,0 +1,11 @@
+{
+  "name": "tree-sitter-opensmarts",
+  "version": "1.0.0",
+  "description": "A Tree-sitter grammar implementing the OpenSmarts specification",
+  "main": "grammar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Mitterer (0x1d1z3r)",
+  "license": "MIT"
+}
