@@ -5,7 +5,7 @@ The provided grammar includes a [bugfix](https://github.com/timvdm/OpenSMARTS/is
 ## How to run
 	git clone https://github.com/0x1d1z3r/tree-sitter-opensmarts
  	cd tree-sitter-opensmarts
-	npm install package.json
+	npm install --save-dev tree-sitter-cli
 	export PATH=$PATH:./node_modules/.bin 				# set $PATH
 	treesitter generate                   				# generate parser 
 	treesitter playground                 				# interactive example
