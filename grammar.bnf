@@ -57,7 +57,7 @@
 <ring_connectivity> ::= "x" | "x" <number>
 <charge> ::= "-" | "-" <digit> | "+" | "+" <digit>
 <question_mark> ::= "?" | E
-<chiral> ::= "@" <question_mark> | "@@" "?" <question_mark>
+<chiral> ::= "@" <question_mark> | "@@" <question_mark>
     | "@TH1" <question_mark> | "@TH2" <question_mark>
     | "@AL1" <question_mark> | "@AL2" <question_mark>
     | "@SP1" <question_mark> | "@SP2" <question_mark> | "@SP3" <question_mark>
